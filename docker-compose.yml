@@ -15,3 +15,11 @@ services:
     ports:
       - "8080:8080"
 
+  web:
+    build: ./app/web
+    environment:
+      NEXT_PUBLIC_API_BASE: "/api"        # calls proxy rewrite
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
